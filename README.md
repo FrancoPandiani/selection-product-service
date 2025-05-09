@@ -1,11 +1,18 @@
-﻿# Selection.ProductService
+﻿# Selection Product API
 
-Microservicio para la gestión de productos de la pinturería **Selección**.
-Este servicio maneja información de los todos los productos.
+This microservice is responsible for managing and maintaining product information for **Selection** paint store. It supports the full lifecycle of product data, including:
 
-## 🛠 Tecnologías
-- .NET 8
-- ASP.NET Core Web API
-- Entity Framework Core
-- SQL Server
-- Docker
+- **Creation** of new products
+- **Updates** to existing product details
+- **Retrieval** of product information
+- **Deletion** of obsolete or unnecessary products
+
+This ensures efficient and organized product management within the ecosystem.
+
+## 🛠 Technologies
+- **.NET 8**: Latest version of the .NET framework for building scalable, modern applications.
+- **ASP.NET Core Web API**: Framework for building robust, RESTful APIs.
+- **Entity Framework Core**: ORM for seamless database interaction.
+- **SQL Server**: Relational database for storing product data.
+- **Docker**: Containerization for simplified deployment and scaling.
+
