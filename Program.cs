@@ -9,10 +9,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
-{ 
+{
 options.DefaultRequestCulture = new RequestCulture("en-US");
-options.SupportedCultures = new[] { new CultureInfo("en-US")};
-options.SupportedUICultures = new[] { new CultureInfo("en-US")};
+options.SupportedCultures = new[] { new CultureInfo("en-US") };
+options.SupportedUICultures = new[] { new CultureInfo("en-US") };
 });
 
 var app = builder.Build();
@@ -27,7 +27,4 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-
 app.Run();
-
