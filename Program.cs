@@ -30,7 +30,7 @@ app.UseRequestLocalization();
 // Garantiza que la DB esté siempre actualizada con las últimas migraciones pendientes antes de procesar cualquier solicitud
 using (var scope = app.Services.CreateScope())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<DbContext>();
+    var dbContext = scope.ServiceProvider.GetRequiredService<ProductContext>();
     dbContext.Database.Migrate();
 }
 
