@@ -20,4 +20,12 @@ public class ProductsController : ControllerBase
     {
         return await this.context.Products.ToListAsync();
     }
+
+    // responde con HTTP 201 y los datos del producto creado.
+    [HttpPost]
+    public async Task<ActionResult<Product>> PostProduct(Product product) 
+    {
+        await this.context.SaveChangesAsync();
+        return this.CreatedAtAction(nameof(this.GetProducts), new { id = product.Id }, product);
+    }
 }
