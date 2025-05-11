@@ -27,6 +27,13 @@ builder.Services.AddControllers();
 var app = builder.Build();
 app.UseRequestLocalization();
 
+// Garantiza que la DB esté siempre actualizada con las últimas migraciones pendientes antes de procesar cualquier solicitud
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<DbContext>();
+    dbContext.Database.Migrate();
+}
+
 // Activa la documentación interactiva de Swagger solo cuando la aplicación está en modo desarrollo.
 if (app.Environment.IsDevelopment())
 {
