@@ -1,6 +1,5 @@
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
-using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Restringe las culturas admitidas tanto para los datos como para la UI solo a "en-US".
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
 options.DefaultRequestCulture = new RequestCulture("en-US");
@@ -16,7 +16,6 @@ options.SupportedUICultures = new[] { new CultureInfo("en-US") };
 });
 
 var app = builder.Build();
-
 app.UseRequestLocalization();
 
 // Configure the HTTP request pipeline.
