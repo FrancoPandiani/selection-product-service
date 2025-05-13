@@ -1,9 +1,20 @@
+# TODO: Usar Docker Secrets para gestionar SA_PASSWORD en lugar de hardcodearlo.
+
 services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=123Fr4nk!
+    ports:
+      - "1433:1433"
+
   product-service:
-    build:
-      context: .
+    build: .
+    depends_on:
+      - sqlserver
     ports:
       - "8001:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=host.docker.internal;Database=ProductDb;User=sa;Password=123Fr4nk!;Encrypt=false;
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=ProductDb;User=sa;Password=123Fr4nk!;Encrypt=false;
