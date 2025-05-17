@@ -1,6 +1,6 @@
 @Selection.ProductService_HostAddress = http://localhost:5111
 
-GET {{Selection.ProductService_HostAddress}}/weatherforecast/
+GET {{Selection.ProductService_HostAddress}}/products/
 Accept: application/json
 
 ###
